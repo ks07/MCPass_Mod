@@ -1,0 +1,23 @@
+MCPass_Mod is a module for the PHP-IRC bot available for download at http://www.phpbots.org/ that connects to the HTTPConsole plugin (available here: http://forums.bukkit.org/threads/web-dev-admin-httpconsole-0-2-1-issue-console-commands-over-http-740.12504/) running on a Minecraft Bukkit server. Mainly written as a simple learning project, this module is very simple and provides only basic functions. This module has the potential to allow an attacker to gain access to your server console. Therefore, it is advised to use your IRC network's services to provide protection in the form of nickname registration and access control lists.
+
+------------------------
+Installation:
+------------------------
+1) Download and configure PHP-IRC from http://www.phpbots.org/
+2) Download and configure the HTTPConsole plugin on your Bukkit server from http://forums.bukkit.org/threads/web-dev-admin-httpconsole-0-2-1-issue-console-commands-over-http-740.12504/
+3) Place the mcpass/ folder in the modules/ folder where you downloaded PHP-IRC
+4) Edit the mcpass.ini file to suit your setup, most importantly the nicknames, channel and port fields.
+5) Add the following line to the end of function.conf in your PHP-IRC folder: "include modules/mcpass/mcpass.conf"
+6) Start the IRC bot with php bot.php bot.conf (On Linux)
+
+------------------------
+Available Commands:
+------------------------
+!mcdo <command string>
+  -Runs the <command string> in the server console and replies with the output.
+!mcreload
+  -Reloads the mcpass.ini settings.
+!mcallow <nick>
+  -Temporarily allows <nick> to use all commands until the module is reloaded.
+!mcrevoke <nick>
+  -Temporarily denies <nick> access to all commands until the module is reloaded.
