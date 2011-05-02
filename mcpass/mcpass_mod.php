@@ -115,7 +115,15 @@ class mcpass_mod extends module {
                     // Command response begins at line 8.
                     if ($count > 7)
                     {
-                    $this->ircClass->privMsg($line['to'], $RespLine, $queue = 1);
+                        if (strlen($RespLine) < 200)
+                        {
+                            $this->ircClass->privMsg($line['to'], $RespLine, $queue = 1);
+                        } else {
+                            foreach (str_split($RespLine, 200) As $SplitRespLine)
+                            {
+                                $this->ircClass->privMsg($line['to'], $SplitRespLine, $queue = 1);
+                            }
+                        }
                     }
                 }
             } else {
